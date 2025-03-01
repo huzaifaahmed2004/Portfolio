@@ -37,6 +37,7 @@ body {
     color: var(--text-primary);
     background: var(--bg-primary);
     transition: background-color 0.3s ease;
+    
 }
 
 .container {
@@ -438,7 +439,45 @@ section {
     display: flex;
     gap: 1rem;
 }
+/* Add this to your styles.css */
 
+/* Sliding Navigation Indicator */
+.nav ul {
+    position: relative;
+  }
+  
+  .nav ul::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    height: 3px;
+    width: 0;
+    background: var(--primary-color);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    left: 0;
+  }
+  
+  .nav a.active {
+    color: var(--primary-color);
+  }
+  
+  /* These classes will be added by JavaScript */
+  .nav ul[data-active="0"]::after { width: 42px; left: 0; }
+  .nav ul[data-active="1"]::after { width: 47px; left: 74px; }
+  .nav ul[data-active="2"]::after { width: 45px; left: 153px; }
+  .nav ul[data-active="3"]::after { width: 45px; left: 230px; }
+  .nav ul[data-active="4"]::after { width: 60px; left: 307px; }
+  .nav ul[data-active="5"]::after { width: 58px; left: 399px; }
+  
+  @media (max-width: 768px) {
+    .nav ul[data-active="0"]::after { width: 35px; left: 0; }
+    .nav ul[data-active="1"]::after { width: 40px; left: 47px; }
+    .nav ul[data-active="2"]::after { width: 38px; left: 99px; }
+    .nav ul[data-active="3"]::after { width: 38px; left: 149px; }
+    .nav ul[data-active="4"]::after { width: 50px; left: 199px; }
+    .nav ul[data-active="5"]::after { width: 48px; left: 261px; }
+  }
 .project__link {
     display: inline-flex;
     align-items: center;
